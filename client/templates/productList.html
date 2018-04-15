@@ -1,7 +1,26 @@
-<ul ng-repeat='product in products'>
-    <li>
-        <div>{{ product.name }}</div>
-        <button name='edit-button' class='btn btn-primary btn-sm' ng-click=clickedEdit(product.id)>Edit</button>
+<div style='border:2px solid #a1a1a1; margin:2'>
+    <h1>Product List</h1>
+    <div ng-repeat='product in products'>
 
-    </li>
-</ul>
+        <div>
+            {{productsCopy[product.id-1].name}}
+            <button name='edit-button' class='btn btn-primary btn-sm' ng-click=edit(product.id)>Edit</button>
+            <input ng-if='ids.includes(product.id)' ng-model='product.name' ng-change='compare(product.id)' />
+            <button name='edit-button' class='btn btn-primary btn-sm' ng-if='ids.includes(product.id)' ng-click=cancel(product.id)>Cancel</button>
+        </div>
+
+    </div>
+
+    <button name='save-button' class='btn btn-primary btn-sm' ng-if='same === false' ng-click='update(); closeboxes()'>Save</button>
+    <button name='cancel-all-button' class='btn btn-primary btn-sm' ng-if='same === false' ng-click='closeboxes()'>Cancel</button>
+
+</div>
+
+
+<div style='border:2px solid #a1a1a1'>
+        <h1>Product List</h1>
+
+    <div ng-repeat='product in products'>
+        {{productsCopy[product.id-1].name}}
+    </div>
+</div>
