@@ -1,2 +1,2 @@
-app.controller('ProductCtrlr', ['$scope', function ($scope) {
-}])
+app.controller('ProductFinalCtrlr', function ($scope, ProductService) {
+})
